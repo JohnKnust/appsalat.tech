@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appsalat</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 720px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      background-color: white;
+      color: black;
+    }
+    header, footer {
+      text-align: center;
+    }
+    nav a {
+      margin-right: 1rem;
+      color: #0066cc;
+      text-decoration: underline;
+    }
+    nav a:hover {
+      color: #004499;
+    }
+    h1 {
+      margin-top: 0;
+      color: black;
+    }
+    h2 {
+      color: black;
+    }
+    a {
+      color: #0066cc;
+    }
+    a:hover {
+      color: #004499;
+    }
+    .header-image {
+      display: block;
+      margin: 0 auto 2rem auto;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      pointer-events: none;
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
+    /* Disable right-click context menu */
+    body {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    /* Re-enable text selection for content */
+    p, h1, h2, h3, nav {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="watercolorpaintingabowlfil_19521236.png" alt="Watercolor Painting" class="header-image" oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
+    <p>Tools & Apps – entwickelt in Deutschland.</p>
+  </header>
+
+  <section id="apps">
+    <h2>Meine Apps</h2>
+    <p><strong>Draft1</strong> – Kurzbeschreibung. Noch nicht im <a href="https://apps.apple.com/de/app/DEIN-APP-NAME" target="_blank">App Store</a>.</p>
+  </section>
+
+  <section id="impressum">
+    <h2>Impressum</h2>
+    <p>Angaben gemäß § 5 TMG:</p>
+    <p>
+      Johannes Knust<br>
+      Appsalat (Einzelunternehmen)<br>
+      Bayreuther Straße 16<br>
+      90489 Nürnberg<br>
+      Deutschland
+    </p>
+    <p>
+      E-Mail: <a href="mailto:johannes@appsalat.tech">johannes@appsalat.tech</a><br>
+      Umsatzsteuer-ID: entfällt (Kleinunternehmer gemäß § 19 UStG)
+    </p>
+  </section>
+
+  <section id="datenschutz">
+    <h2>Datenschutzerklärung</h2>
+    <p>Diese Website verwendet keine Cookies und erhebt keine personenbezogenen Daten. Bei einer Kontaktaufnahme per E-Mail werden die übermittelten Daten ausschließlich zur Bearbeitung Ihrer Anfrage gespeichert. Die Daten werden gelöscht, sobald sie für den Zweck der Verarbeitung nicht mehr erforderlich sind, sofern keine gesetzlichen Aufbewahrungspflichten bestehen.</p>  </section>
+
+  <footer>
+    <p>&copy; 2025 Appsalat – Johannes Knust</p>
+  </footer>
+
+  <script>
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      return false;
+    });
+
+    // Disable common keyboard shortcuts for copying/saving
+    document.addEventListener('keydown', function(e) {
+      // Disable Ctrl+S (Save), Ctrl+A (Select All), Ctrl+C (Copy), Ctrl+V (Paste), Ctrl+X (Cut)
+      if (e.ctrlKey && (e.keyCode === 83 || e.keyCode === 65 || e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88)) {
+        e.preventDefault();
+        return false;
+      }
+      // Disable F12 (Developer Tools)
+      if (e.keyCode === 123) {
+        e.preventDefault();
+        return false;
+      }
+      // Disable Ctrl+Shift+I (Developer Tools)
+      if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        e.preventDefault();
+        return false;
+      }
+      // Disable Ctrl+U (View Source)
+      if (e.ctrlKey && e.keyCode === 85) {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Disable drag and drop for images
+    document.addEventListener('dragstart', function(e) {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+      }
+    });
+
+    // Additional protection for the specific image
+    window.addEventListener('load', function() {
+      const headerImage = document.querySelector('.header-image');
+      if (headerImage) {
+        headerImage.addEventListener('dragstart', function(e) {
+          e.preventDefault();
+          return false;
+        });
+        headerImage.addEventListener('selectstart', function(e) {
+          e.preventDefault();
+          return false;
+        });
+      }
+    });
+  </script>
+</body>
+</html>
